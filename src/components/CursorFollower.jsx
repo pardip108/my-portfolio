@@ -21,10 +21,10 @@ const CursorFollower = () => {
         position: "fixed",
         top: position.y + 30, // center the circle
         left: position.x + 0, // center the circle
-        width: 30,
-        height: 30,
+        width: 20,
+        height: 20,
         borderRadius: "50%",
-        backgroundColor: "transparent",
+        backgroundColor: "blue",
         border: "2px solid blue",
         boxShadow: "0 0 10px rgba(0, 0, 255, 0.5)",
         pointerEvents: "none", // cursor can interact with page
