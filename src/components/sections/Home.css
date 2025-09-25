@@ -1,0 +1,6 @@
+.gradient-text-dark {
+  background: linear-gradient(to right, #38bdf8, #3b82f6); /* light cyan → blue for dark bg */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
