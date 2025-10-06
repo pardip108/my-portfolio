@@ -15,8 +15,8 @@ const AboutCard = ({ description,imageLink}) => {
       {description}
     </p>
     <div className="mt-4 flex space-x-4">
-      <a href="#" className="text-blue-500 hover:underline">LinkedIn</a>
-      <a href="#" className="text-blue-500 hover:underline">GitHub</a>
+      <a href="https://www.linkedin.com/in/pradeep-nayak-8108a6273/" className="text-blue-500 hover:underline">LinkedIn</a>
+      <a href="https://github.com/pardip108" className="text-blue-500 hover:underline">GitHub</a>
       <a href="#" className="text-blue-500 hover:underline">Portfolio</a>
     </div>
   </div>

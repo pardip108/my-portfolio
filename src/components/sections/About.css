@@ -3,7 +3,7 @@
 
 @layer utilities {
   .text-stroke-pink {
-    -webkit-text-stroke: 3px skyblue; /* stroke size + color */
+    -webkit-text-stroke: 3px rgb(40, 43, 236); /* stroke size + color */
     color: transparent;            /* so only stroke is visible */
   }
 }

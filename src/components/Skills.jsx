@@ -1,15 +1,15 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef } from "react";
 
 const skills = [
-  { name: 'HTML', percent: 90 },
-  { name: 'CSS', percent: 85 },
-  { name: 'JavaScript', percent: 80 },
-  { name: 'React', percent: 75 },
-  { name: 'Node.js', percent: 70 },
+  { name: "HTML", percent: 90 },
+  { name: "CSS", percent: 85 },
+  { name: "JavaScript", percent: 80 },
+  { name: "React", percent: 75 },
+  { name: "Node.js", percent: 70 },
 ];
 
-const blue = '#2196f3';
-const blueAccent = '#72b7fa';
+const blue = "#2196f3";
+const blueAccent = "#72b7fa";
 
 const SkillBar = ({ name, percent, isHovered, onMouseEnter, onMouseLeave }) => {
   const [displayedPercent, setDisplayedPercent] = useState(percent);
@@ -41,7 +41,7 @@ const SkillBar = ({ name, percent, isHovered, onMouseEnter, onMouseLeave }) => {
         } else {
           setDisplayedBlocks(startBlocks);
         }
-      }, 80); // time block animation
+      }, 80);
     } else {
       setDisplayedPercent(percent);
       setDisplayedBlocks(Math.round(percent / 10));
@@ -57,89 +57,127 @@ const SkillBar = ({ name, percent, isHovered, onMouseEnter, onMouseLeave }) => {
   return (
     <div
       style={{
-        display: 'flex',
-        alignItems: 'center',
-        marginBottom: '24px',
-        cursor: 'pointer',
-        transform: isHovered ? 'scale(1.11)' : 'scale(1)',
-        transition: 'transform 0.22s cubic-bezier(.44,2,.5,1.1)',
-        boxShadow: isHovered ? `0 2px 18px ${blue}55, 0 0 0 3px ${blueAccent}55` : 'none',
+        display: "flex",
+        alignItems: "center",
+        marginBottom: "24px",
+        cursor: "pointer",
+        transform: isHovered ? "scale(1.05)" : "scale(1)",
+        transition: "transform 0.22s cubic-bezier(.44,2,.5,1.1)",
+        boxShadow: isHovered
+          ? `0 2px 18px ${blue}55, 0 0 0 3px ${blueAccent}55`
+          : "none",
         borderRadius: 12,
-        background: isHovered ? '#232a33' : 'transparent',
-        padding: isHovered ? '10px 0' : '0',
-        fontFamily: 'monospace'
+        background: isHovered ? "#232a33" : "transparent",
+        padding: isHovered ? "10px 8px" : "0",
+        fontFamily: "monospace",
+        flexWrap: "wrap", // ✅ allow wrapping on small screens
       }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <span style={{ width: 130, color: '#fff', fontFamily: 'monospace', fontSize: '1.35em', letterSpacing: '1px' }}>{name}</span>
-      <span style={{
-        width: 54,
-        color: blue,
-        fontWeight: 700,
-        textAlign: 'right',
-        marginRight: 22,
-        fontSize: '1.25em',
-        transition: 'color 0.2s'
-      }}>
+      {/* Skill name */}
+      <span
+        style={{
+          minWidth: 90,
+          flex: "0 0 auto",
+          color: "#fff",
+          fontSize: "1.1em",
+          letterSpacing: "1px",
+          marginRight: 8,
+        }}
+      >
+        {name}
+      </span>
+
+      {/* Percent */}
+      <span
+        style={{
+          minWidth: 40,
+          flex: "0 0 auto",
+          color: blue,
+          fontWeight: 700,
+          textAlign: "right",
+          marginRight: 12,
+          fontSize: "1em",
+        }}
+      >
         {Math.round(displayedPercent)}%
       </span>
-      <div style={{
-        background: '#242c39',
-        borderRadius: 4,
-        width: 270,
-        height: 30,
-        margin: '0 18px',
-        display: 'flex',
-        alignItems: 'center',
-        padding: '3px 6px',
-      }}>
-        <div style={{
-          height: '100%',
-          width: `${percent}%`,
-          background: blue,
-          borderRadius: 3,
-          transition: 'width 0.5s',
-          display: 'flex',
-        }}>
-          {
-            Array.from({ length: displayedBlocks }).map((_, i) =>
-              <div key={i} style={{
-                width: 20,
-                height: '100%',
-                marginRight: 4,
+
+      {/* Progress bar */}
+      <div
+        style={{
+          flex: 1, // ✅ take remaining width
+          background: "#242c39",
+          borderRadius: 4,
+          height: 26,
+          margin: "6px 0",
+          display: "flex",
+          alignItems: "center",
+          padding: "2px 4px",
+          minWidth: 120,
+        }}
+      >
+        <div
+          style={{
+            height: "100%",
+            width: `${percent}%`,
+            background: blue,
+            borderRadius: 3,
+            transition: "width 0.5s",
+            display: "flex",
+          }}
+        >
+          {Array.from({ length: displayedBlocks }).map((_, i) => (
+            <div
+              key={i}
+              style={{
+                width: 16,
+                height: "100%",
+                marginRight: 3,
                 background: blueAccent,
                 opacity: 0.95,
                 borderRadius: 2,
-                transition: 'height 0.2s',
-              }}></div>
-            )
-          }
+                transition: "height 0.2s",
+              }}
+            ></div>
+          ))}
         </div>
       </div>
-      <span style={{ color: blue, fontSize: '1.25em', fontWeight: 600 }}>[</span>
-      <span style={{ color: blue, fontSize: '1.25em', marginLeft: 4, fontWeight: 600 }}>[</span>
-      <span style={{ color: blue, fontSize: '1.25em', marginLeft: 36, fontWeight: 600 }} >]</span>
     </div>
   );
 };
 
 const Skills = () => {
   const [hovered, setHovered] = useState(null);
+
   return (
-    <div style={{
-      width: 800,
-      background: '#17202A',
-      borderRadius: 22,
-      padding: '48px 54px',
-      fontFamily: 'monospace',
-      color: '#fff',
-      boxShadow: '0 0 48px #0007'
-    }}>
-      <div style={{ marginBottom: 38, fontSize: '1.3em', fontWeight: 800, letterSpacing: '1px' }}>
+    <div
+      style={{
+        width: "100%", // ✅ full width
+        maxWidth: 800, // ✅ limit on desktop
+        background: "#17202A",
+        borderRadius: 22,
+        padding: "28px",
+        fontFamily: "monospace",
+        color: "#fff",
+        boxShadow: "0 0 48px #0007",
+        margin: "0 auto", // ✅ center
+      }}
+    >
+      <div
+        style={{
+          marginBottom: 28,
+          fontSize: "1.2em",
+          fontWeight: 700,
+          letterSpacing: "1px",
+          textAlign: "center",
+        }}
+      >
         My Skills
       </div>
-      {skills.map(skill =>
+
+      {skills.map((skill) => (
         <SkillBar
           key={skill.name}
           name={skill.name}
@@ -148,7 +186,7 @@ const Skills = () => {
           onMouseEnter={() => setHovered(skill.name)}
           onMouseLeave={() => setHovered(null)}
         />
-      )}
+      ))}
     </div>
   );
 };

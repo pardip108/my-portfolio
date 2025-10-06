@@ -1,6 +1,25 @@
-.gradient-text-dark {
-  background: linear-gradient(to right, #38bdf8, #3b82f6); /* light cyan → blue for dark bg */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+@keyframes fadeinup {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
+.fadeinup1 {
+  animation: fadeinup 1s ease forwards;
+  animation-delay: 0s;
+}
+
+.fadeinup2 {
+  animation: fadeinup 1s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.fadeinup3 {
+  animation: fadeinup 1s ease forwards;
+  animation-delay: 0.4s;
+}

@@ -36,7 +36,7 @@ function App() {
           <Navbar scrollToSection={scrollToSection} 
               refs={{ homeRef, aboutRef, projectsRef, contactRef }} />
 
-      <section ref={homeRef} className="min-h-screen p-10 bg-gray-900">
+      <section ref={homeRef} className="min-h-screen  bg-gray-900">
         <Home scrollToSection={scrollToSection} 
               refs={{ homeRef, aboutRef, projectsRef, contactRef }}/>
       </section>
