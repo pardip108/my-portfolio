@@ -40,10 +40,10 @@ function App() {
         <Home scrollToSection={scrollToSection} 
               refs={{ homeRef, aboutRef, projectsRef, contactRef }}/>
       </section>
-      <section ref={aboutRef} className="min-h-screen p-6 bg-gray-1000">
+      <section ref={aboutRef} className="min-h-screen p-5 bg-gray-1000">
         <About />
       </section>
-      <section ref={projectsRef} className="min-h-screen p-6 bg-gray-1100">
+      <section ref={projectsRef} className="min-h-screen p-5 bg-gray-1100">
         <Projects />
       </section>
       <section ref={contactRef} className="max-h-screen p-1  bg-gray-1200">
